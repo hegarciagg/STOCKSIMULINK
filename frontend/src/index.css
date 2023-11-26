@@ -1,68 +1,79 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Configuración de Tailwind para responsividad */
+@layer base {
+  body {
+    @apply bg-slate-200 text-slate-500; /* Ejemplo de colores, ajusta según tu paleta */
   }
-  a:hover {
-    color: #747bff;
+
+  ::selection {
+    @apply bg-purple-700 bg-opacity-50;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer components {
+  #cover {
+    @apply bg-gradient-to-r from-pink-600 to-purple-700 bg-no-repeat bg-cover flex min-h-screen;
   }
+
+  .currentIconPage svg {
+    @apply stroke-orange-500 fill-orange-500;
+  }
+
+  /* Clases de paginación de Swiper, aplicar en HTML si es necesario */
+}
+
+@layer components {
+  .container {
+    @apply max-w-full px-5 mx-auto; /* Ancho y márgenes */
+  }
+  .btn {
+    @apply bg-primaryColor py-4 px-9 rounded-full text-white font-semibold mt-10;
+  }
+
+  .header {
+    @apply bg-blue-800 w-full h-24 leading-10 right-10; /* Altura y alineación del texto */
+  }
+}
+
+/* Media Queries para dispositivos de tamaño mediano */
+@media (max-width: 1024px) {
+  .container {
+    @apply md:w-full;
+  }
+  section {
+    @apply md:py-9;
+  }
+}
+
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 768px) {
+  .heading {
+    @apply sm:text-xl sm:leading-9;
+  }
+
+  .container {
+    @apply sm:w-full;
+  }
+  .btn {
+    @apply sm:py-3 sm:px-7 sm:mt-5; /* Botones más pequeños en pantallas pequeñas */
+  }
+
+  .header {
+    @apply sm:h-20 sm:leading-10; /* Encabezado más pequeño en pantallas pequeñas */
+  }
+
+  /* Añade aquí más estilos personalizados para pantallas pequeñas si es necesario */
+}
+
+/* Considera agregar clases para pantallas muy pequeñas, como teléfonos móviles */
+@media (max-width: 480px) {
+  /* Adaptaciones para dispositivos muy pequeños */
+  .heading {
+    @apply text-lg leading-7;
+  }
+
+  /* Añade aquí más estilos personalizados para pantallas muy pequeñas si es necesario */
 }
