@@ -1,42 +1,81 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+:root {
+  --text-color: #a9aab8;
+  --header-height: 80px;
+  --header-z-index: 99999;
+  --navigation-background-color: rgba(0, 0, 0, 0.52);
+  --menu-width: 15rem;
+  --menu-z-index: 200;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+body {
+  font-family: "Poppins", Helvetica, sans-serif;
+  color: var(--text-color);
+}
+
+.sticky__header {
+  width: 100%;
+  height: var(--header-height);
+  line-height: var(--header-height);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: var(--header-z-index);
+  box-shadow: 3px 3px -8px 3px var(--text-color);
+  display: none;
+}
+
+/* Mejora la responsividad en tabletas y dispositivos móviles */
+@media only screen and (max-width: 1024px) {
+  .sticky__header {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (max-width: 768px) {
+  .navigation {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--header-z-index);
+    background-color: var(--navigation-background-color);
+    display: none;
+  }
+
+  .menu {
+    width: var(--menu-width);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: var(--menu-z-index);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 30px;
+  }
+
+  .show__menu {
+    display: block;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Estilos para teléfonos móviles */
+@media only screen and (max-width: 480px) {
+  .menu {
+    width: 100vw; /* Ocupar todo el ancho de la pantalla en dispositivos móviles */
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  /* Ajustes adicionales si son necesarios */
 }
